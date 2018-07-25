@@ -1,0 +1,287 @@
+body {
+  background-color: #000;
+}
+
+.flagcontainer {
+  background-color: #fff;
+  width: 500px;
+  height: 300px;
+  margin: 5px;
+}
+
+#france {
+  background-color: #fff;
+}
+
+.france {
+  width: 33.33%;
+  height: 100%;
+  display: inline-block;
+}
+#francered {
+  float: right;
+  background-color: red;
+}
+#franceblue {
+  float: left;
+  background-color: blue;
+}
+
+.germany {
+  width: 100%;
+  height: 33.33%;
+}
+
+#germanyblack {
+  background-color: black;
+}
+
+#germanyred {
+  background-color: red;
+}
+
+#germanyyellow {
+  background-color: yellow;
+}
+
+#madagascar {
+  background-color: #fff;
+}
+.madagascar {
+  width: 66%;
+  height: 50%;
+  float: right;
+}
+#madagascarred {
+  background-color: red;
+}
+
+#madagascargreen {
+  background-color: green;
+}
+
+#switzerland {
+  width: 300px;
+  height: 300px;
+}
+.switzrow {
+  width: 100%;
+  height: 20%;
+  background-color: red;
+}
+
+.switzrow div {
+  display: inline-block;
+  float: left;
+  height: 100%;
+}
+
+.switzred20 {
+  width: 20%;
+  background-color: red;
+}
+
+.switzred40 {
+  width: 40%;
+  background-color: red;
+}
+
+.switzwhite20 {
+  width: 20%;
+  background-color: #fff;
+}
+
+.switzwhite60 {
+  width: 60%;
+  background-color: #fff;
+}
+
+#sweden {
+  background-color: blue;
+}
+
+.sweden {
+  background-color: yellow;
+  position: relative;
+  display: inline-block;
+}
+
+#swedenhorizontal {
+  left: 0;
+  top: 40%;
+  width: 100%;
+  height: 20%;
+}
+
+#swedenvertical {
+  left: 20%;
+  top: -21.5%;
+  width: 12.5%;
+  height: 100%;
+}
+
+#gambia {
+  background-color: #fff;
+}
+
+.gambia {
+  width: 100%;
+  height: 33.33%;
+  display: inline-block;
+  float: left;
+}
+
+#gambiared {
+  background-color: red;
+}
+
+#gambiablue {
+  background-color: blue;
+  height: 20%;
+  border-top: 20px solid white;
+  border-bottom: 20px solid white;
+}
+
+#gambiagreen {
+  background-color: green;
+}
+
+#tonga {
+  height: 250px;
+  background-color: red;
+}
+
+#tongawhite {
+  width: 40%;
+  height: 50%;
+  background-color: #fff;
+}
+
+#tongavertical {
+  position: relative;
+  background-color: red;
+  top: -18%;
+  left: 40%;
+  width: 18%;
+  height: 85%;
+}
+
+#tongahorizontal {
+  position: relative;
+  background-color: red;
+  top: 37%;
+  left: 21%;
+  width: 57%;
+  height: 25%;
+}
+
+#sun {
+  position: relative;
+  top: 20%;
+  left: 32.5%;
+  border-radius: 50%;
+  background-color: red;
+  height: 60%;
+  width: 35%;
+}
+
+.greecestripes {
+  width: 100%;
+  height: 11.11%;
+}
+
+.greeceblue {
+  background-color: blue;
+}
+
+.greecewhite {
+  background-color: #fff;
+}
+
+#greeceblock {
+  position: relative;
+  background-color: blue;
+  width: 33%;
+  height: 55.55%;
+  top: -100%;
+  left: 0;
+}
+
+.greecestripe {
+  background-color: #fff;
+  position: relative;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+#greecehorizontal {
+  width: 100%;
+  height: 20%;
+  top: 40%;
+  left: 0;
+}
+
+#greecevertical {
+  width: 20%;
+  height: 100%;
+  top: -20%;
+  left: 40%;
+}
+
+.niger {
+  width: 100%;
+  height: 33.33%;
+}
+
+#nigerorange {
+  background-color: orange;
+}
+
+#nigergreen {
+  background-color: green;
+}
+
+#nigerdot {
+  background-color: orange;
+  border-radius: 50%;
+  position: relative;
+  width: 16%;
+  height: 80%;
+  top: 10%;
+  left: 42%;
+}
+
+#maldives {
+  background-color: red;
+}
+
+#maldivesbox {
+  position: relative;
+  top: 25%;
+  left: 16.66%;
+  height: 50%;
+  width: 66.66%;
+  background-color: green;
+}
+
+#maldiveswhitemoon {
+  position: relative;
+  background-color: white;
+  border-radius: 50%;
+  height: 74%;
+  top: 12%;
+  width: 33%;
+  left: 40%;
+}
+
+#maldivesgreenmoon {
+  position: relative;
+  background-color: green;
+  border-radius: 50%;
+  height: 74%;
+  top: -62%;
+  width: 33%;
+  left: 45%
+}

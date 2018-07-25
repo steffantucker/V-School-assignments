@@ -1,0 +1,51 @@
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  width: 100%;
+  height: 7%;
+  background-color: plum;
+  padding-left: 75%;
+}
+
+main {
+  margin-top: 7%;
+  text-align: center;
+}
+
+article {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  border: 2px solid rgb(136, 178, 216);
+}
+
+.entrytitle {
+  margin: 0;
+  padding: 10px;
+  text-align: right;
+  background-color: rgb(136, 177, 216);
+}
+
+.entrycontent {
+  padding: 10px 5px;
+  text-align: left;
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.entrycontent img {
+  float: left;
+  clear: right;
+}
+
+.entrycontent::first-letter {
+  font-size: 1.2rem;
+}
+
+.entryfooter {
+  border-top: 2px solid rgb(136, 177, 216, 0.6);
+  text-align: right;
+}
