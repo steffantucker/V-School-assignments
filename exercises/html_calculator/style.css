@@ -1,0 +1,33 @@
+main {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+div {
+  padding: 20px 0;
+}
+
+.answer {
+  font-size: 1.3rem;
+}
+
+input {
+  font-size: 1rem;
+}
+
+#add {
+  background-color: green;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#subtract {
+  background-color: greenyellow;
+}
+
+#multiply {
+  background-color: yellow;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

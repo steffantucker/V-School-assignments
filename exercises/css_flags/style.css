@@ -6,7 +6,7 @@ body {
   background-color: #fff;
   width: 500px;
   height: 300px;
-  margin: 5px;
+  margin: 5px auto;
 }
 
 #france {
@@ -98,15 +98,16 @@ body {
 
 #sweden {
   background-color: blue;
+  position: relative;
 }
 
 .sweden {
   background-color: yellow;
-  position: relative;
   display: inline-block;
 }
 
 #swedenhorizontal {
+  position: absolute;
   left: 0;
   top: 40%;
   width: 100%;
@@ -114,8 +115,9 @@ body {
 }
 
 #swedenvertical {
+  position: absolute;
   left: 20%;
-  top: -21.5%;
+  top: 0;
   width: 12.5%;
   height: 100%;
 }
@@ -185,6 +187,9 @@ body {
   width: 35%;
 }
 
+#greece {
+  position: relative;
+}
 .greecestripes {
   width: 100%;
   height: 11.11%;
@@ -199,21 +204,20 @@ body {
 }
 
 #greeceblock {
-  position: relative;
+  position: absolute;
   background-color: blue;
   width: 33%;
   height: 55.55%;
-  top: -100%;
+  top: 0;
   left: 0;
 }
 
 .greecestripe {
   background-color: #fff;
-  position: relative;
+  position: absolute;
   display: inline;
   padding: 0;
   margin: 0;
-  float: left;
 }
 
 #greecehorizontal {
@@ -226,7 +230,7 @@ body {
 #greecevertical {
   width: 20%;
   height: 100%;
-  top: -20%;
+  top: 0;
   left: 40%;
 }
 

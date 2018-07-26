@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+}
+
+#square {
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  margin: 100px auto;
+  background-color: black;
+  box-shadow: 0px 0px 20px 5px aqua;
+}
