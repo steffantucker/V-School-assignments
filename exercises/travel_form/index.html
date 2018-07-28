@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Otherworldly Travel Agency</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <h1>Otherworldly Travel Agency</h1>
+</nav>
+<main>
+  <form name='flight'>
+    Traveler Info:
+    <div id="travelerinfo">
+      <label>First name: <input type="text" name="fname" placeholder="First name"></label>
+      <label>Last name: <input type="text" name="lname" placeholder="Last name"></label> <br />
+      <label>Age: <input type="number" name="age" placeholder="Age"></label> <br />
+      Gender: <label><input type="radio" name="gender" value="masculine">Masculine</label>
+      <label><input type="radio" name="gender" value="feminine">Feminine</label>
+      <label><input type="radio" name="gender" value="both">Both</label>
+      <label><input type="radio" name="gender" value="neither">Neither</label>
+    </div>
+    <div id="flightdetails">
+      <label> Select destination:
+        <select name="destination" id="destination">
+          <option value="default"></option>
+          <option value="Fincyra">Fincyra</option>
+          <option value="Kholinar">Kholinar</option>
+          <option value="Corus">Corus</option>
+          <option value="Redwall">Redwall</option>
+          <option value="Cybrespace">Cybrespace</option>
+        </select>
+      </label> <br />
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Vegan">Vegan</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Vegetarian">Vegetarian</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Pescitarian">Pescitarian</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Kosher">Kosher</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Carnivorous">Carnivorous</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Cannibal">Cannibal</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Keto">Keto</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Atkins">Atkins</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Mediterranean">Mediterranean</label>
+      <label class='dietarycheckbox'><input type="checkbox" name="dietary" value="Gluten free">Gluten-free</label>
+    </div>
+    <button>Submit</button>
+  </form>
+</main>
+<script src="app.js"></script>
+<script src="live.js"></script>
+</body>
+</html>

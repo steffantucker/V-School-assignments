@@ -1,0 +1,57 @@
+:root {
+  --purple: #d6cbd3;
+  --red: #eca1a6;
+  --green: #bdcebe;
+  --brown: #ada397;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: var(--purple);
+}
+
+body {
+ background-color: var(--brown);
+ margin-top: 50px;
+}
+
+main {
+  width: 100%;
+  background-color: var(--red);
+  padding: 0;
+  height: 500px;
+  padding-top: 5px;
+}
+
+label {
+  display: block;
+}
+
+input {
+  margin: 1px;
+}
+
+select {
+  margin: 2px;
+}
+
+#travelerinfo {
+  margin: 2px;
+  border: 1px solid black;
+  padding: 2px;
+}
+
+@media only screen and (min-width: 700px) {
+  main {
+    width: 60%;
+    margin: auto;
+  }
+
+  .dietarycheckbox {
+    display: inline-block;
+  }
+}

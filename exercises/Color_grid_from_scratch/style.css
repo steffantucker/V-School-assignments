@@ -3,84 +3,105 @@ body {
 }
 
 #colors {
-  width: 80%;
-  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+  height: 600px;
   margin: auto;
 }
 
-.row1 {
+#row1 {
   background-color: #f5c6d6;
-  margin: 6px 0;
-  padding: 0;
-  display: block;
   width: 100%;
-  height: 177px;
-  max-height: 177px;
-  overflow:hidden;
+  height: 100%;
 }
 
 .pinks {
-  width: 23.2%;
-  height: 100%;
-  margin: 0 1%;
-  display: inline-block;
   background-color: #ee2e84;
+  flex: 1;
+  height: 100%;
+  margin: 0 5px;
+}
+
+.pinks:first-child {
+  margin-left: 0;
+}
+
+.pinks:last-child {
+  margin-right: 0;
 }
 
 .row {
-  list-style: none;
-  display: inline-block;
   width: 100%;
-  height: 177px;
-  max-height: 177px;
-  overflow:hidden;
-  margin: 6px 0;
-  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
 }
 
 .blues {
-  display: inline-block;
-  width: 48.8%;
-  height: 100%;
   background-color: #85cfd8;
+  height: 100%;
+  flex: 2;
 }
 
-#blueleft {
-  margin-right: 1%;
+.blues:first-child {
+  margin-right: 5px;
 }
 
-#blueright {
-  margin-left: 1%;
-}
-
-.row4 {
-  width: 100%;
-  height: 177px;
-  margin: 6px 0;
-  padding: 0;
-  max-height: 177px;
-  overflow:hidden;
+.blues:last-child {
+  margin-left: 5px;
 }
 
 #green {
-  width: 73.4%;
-  height: 100%;
-  display: inline-block;
   background-color: #8dc63f;
-  margin-right: 1%;
+  height: 100%;
+  flex: 3;
+  margin-right: 5px;
 }
 
 #orange {
-  width: 23.4%;
-  height: 100%;
-  display: inline-block;
   background-color: #e76e34;
-  margin-left: 1%;
+  flex: 1;
+  height: 100%;
+  margin-left: 5px;
 }
 
-@media only screen and (max-width: 1260px) {
-  #green, #orange, .pinks, .blues, .row{
-    display: block;
-    overflow: show;
+@media only screen and (max-width: 1024px) {
+  #colors {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #colors {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .pinks {
+    margin: 5px 0;
+  }
+
+  .blues:first-child {
+    margin: 5px 0;
+  }
+
+  .blues:last-child {
+    margin: 5px 0;
+  }
+
+  #green {
+    margin: 5px 0;
+  }
+
+  #orange {
+    margin: 5px 0;
   }
 }
