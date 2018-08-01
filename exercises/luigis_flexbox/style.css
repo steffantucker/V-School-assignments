@@ -1,0 +1,73 @@
+@font-face {
+  font-family: Mario;
+  src: url(SuperMario256.ttf);
+}
+
+body {
+  font-family: Mario;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  margin: 0;
+}
+
+#title {
+  background: yellow;
+  color: red;
+  font-size: 3rem;
+  padding-left: 20px;
+  flex-grow: 1.5;
+  display: flex;
+  align-items: center;
+}
+
+#picture {
+  background: red;
+  flex-grow: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#about {
+  flex-grow: 2;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+}
+
+#about > h1 {
+  text-align: center;
+}
+
+#about > p {
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 1.1rem;
+  width: 20vw;
+  text-align: center;
+}
+
+#footer {
+  background: yellow;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding-right: 20px;
+}
+
+#footer > img {
+  height: 10vh;
+  width: auto;
+}
+
+@media only screen and (max-width: 500px) {
+  #about > p {
+    width: 60vw;
+  }
+}

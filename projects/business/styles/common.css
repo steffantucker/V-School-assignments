@@ -1,0 +1,185 @@
+* {
+  padding: 5px;
+  --red: linear-gradient(to bottom right, rgba(200, 100, 120, 1), rgba(200, 100, 120, 0.7));
+  --navcolor: linear-gradient(to bottom, rgb(9, 131, 178), rgb(20, 152, 204));
+}
+
+body, html {
+  height: 100%;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Comic Sans MS', 'Comic Sans';
+  margin: 0;
+}
+
+header {
+  background: var(--red);
+  width: 100%;
+  margin: 0;
+}
+
+nav {
+  background: var(--navcolor);
+  text-align: center;
+  justify-items: center;
+  height: auto;
+  line-height: 180%;
+  padding: 0;
+  transition: height 0.5s;
+}
+
+#navburger {
+  font-weight: bolder;
+  width: 10%;
+  transform: rotate(90deg);
+  transform-origin: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#navburger:hover {
+  font-size: 1.2em;
+}
+
+#navitems {
+ display: none;
+ padding: 0;
+}
+
+.navitem {
+  /* background: var(--navcolor); */
+  display: block;
+}
+
+.current {
+  text-decoration: none;
+}
+
+main { 
+  display: block;
+  padding: 5px;
+  background: none;
+}
+
+figure {
+  margin: 0;
+}
+
+#arrow {
+  display: none;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: var(--red);
+}
+
+#ceo {
+  width: 80vw;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    display: grid;
+    grid-template: 'nav header' 2fr
+                   'nav main' 10fr
+                   'footer footer' 1fr / 1fr 6fr;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  #ceo {
+    width: 30vw;
+  }
+  
+  header {
+    grid-area: header;
+  }
+
+  #navburger {
+    display: none;
+  }
+  
+  nav {
+    grid-area: nav;
+    display: flex;
+
+  }
+  #navitems {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+  }
+
+  main {
+    grid-area: main;
+    overflow: scroll hidden;
+    width: 100%;
+    padding: 0;
+  }
+  #main {
+    display: flex;
+    height: 100%;
+    width: 200%;
+  }
+
+  #arrow {
+    position: absolute;
+    display: block;
+    bottom: 8vh;
+    right: 1vw;
+    padding: 0;
+    background: rgba(255,255,255,0.75);
+  }
+
+  #arrow::after {
+    content: '⇒';
+    font-size: 1.3rem;
+  }
+
+  footer {
+    grid-area: footer;
+    position: static;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  body {
+    grid-template: "header header header header" 2fr
+                   "nav main main main" 6fr
+                   "nav footer footer footer" 1fr / 1fr 2fr 2fr 2fr;
+    
+  }
+
+  header {
+    padding-left: 10vw;
+  }
+
+  main { 
+    width: 100%;
+    overflow: hidden scroll;
+  }
+
+  #main {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  main > p {
+    flex-grow: 1;
+  }
+
+  #arrow {
+    display: none;
+  }
+}

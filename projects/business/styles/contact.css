@@ -1,0 +1,17 @@
+@media only screen and (min-width: 768px) {
+  main {
+    background: no-repeat url('../images/business-dude.jpg');
+    overflow: hidden;
+  }
+
+  #main {
+    width: 100%;
+  }
+
+  #main > p:last-child {
+    align-self: flex-end;
+    justify-self: flex-end;
+    flex-grow: 0;
+    background: rgba(255,255,255,0.5);
+  }
+}
