@@ -22,12 +22,14 @@ function Player(name) {
 	this.equipedAttack = null;
 	this.equipedDefense = null;
 	this.items = [];
+	this.score = 0;
 
 	this.attack = function() {
-		return Math.floor(Math.random() * 6 + 1) + this.equipedAttack
-			? this.equipedAttack.baseValue
-			: 0;
+		return Math.floor(Math.random() * 6) + 1 + this.equipedAttack
+			? 0
+			: this.equipedAttack.baseValue;
 	};
+	this.defend = function() {};
 	this.damage = function(n) {
 		this.hp.current -=
 			this.equipedDefense === null
@@ -50,6 +52,12 @@ function Player(name) {
 	};
 	this.addItem = function(item) {
 		this.items.push(item);
+	};
+	this.printInventory = function() {
+		console.log('this is the inventory');
+	};
+	this.toString = function() {
+		return ``;
 	};
 }
 
