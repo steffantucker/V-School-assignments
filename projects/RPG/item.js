@@ -23,7 +23,7 @@ const Item = function() {
 };
 
 Item.prototype.toString = function() {
-	return ``;
+	return `${this.name}: ${this.type} +${this.baseValue}`;
 };
 
 module.exports = Item;

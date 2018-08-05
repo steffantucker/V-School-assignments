@@ -15,22 +15,23 @@ const Monster = require('./monster');
  *	defend			reduces damage based on equiped armor
  *	run					50% chance of escape
  */
+console.clear();
 // Get clui
 console.log('Connecting to the net...');
-// clui spinner, 3 seconds
+// Clui spinner, 3 seconds
 console.log('Connection established');
 console.log('Checking user...');
-// clui spinner, 5 seconds
+// Clui spinner, 5 seconds
 console.log('Invalid credentials');
 console.log('Checking for available account slots...');
-// clui spinner, 2 seconds
+// Clui spinner, 2 seconds
 console.log('Slots available');
 const player = new Player(cin.question('Enter username: '));
 console.log('Checking username availability...');
-// clui spinner, 6 seconds
+// Clui spinner, 6 seconds
 console.log('Username available');
 console.log(`Welcome to the net ${player.name}`);
-// clui loader over 10-15 seconds
+// Clui loader over 10-15 seconds
 let playing = true;
 
 while (player.isAlive && playing) {
@@ -46,7 +47,7 @@ while (player.isAlive && playing) {
 			console.log('[q]uit to quit');
 			break;
 		case 'i': // Inventory
-			player.printInventory();
+			console.log(player.printInventory());
 			break;
 		case 'p': // Prettyprint player info
 			// Colored name
@@ -55,7 +56,7 @@ while (player.isAlive && playing) {
 			// defensive, if available
 			console.log(player);
 			break;
-		case 'w': // Walk
+		case 'c': // Connect
 			player.score++;
 			if (Math.random() < 0.25) {
 				// Gonna get attacked
@@ -73,7 +74,7 @@ if (!player.isAlive) {
 	console.log(`Your process was killed.`);
 }
 console.log('Disconnecting...');
-// clui spinner, 2 seconds
+// Clui spinner, 2 seconds
 console.log('Disconnected. Ending process.');
 
 // Death message
@@ -129,6 +130,11 @@ function monsterAttack() {
 		}
 	}
 	if (!monster.isAlive) {
-		player.addItem(new Item());
+		console.log(`Rogue process eliminated.`);
+		if (Math.random() < 0.4) {
+			const item = new Item();
+			console.log(`Salvaged ${item} from remaining bits.`)
+			player.addItem(item);
+		}
 	}
 }

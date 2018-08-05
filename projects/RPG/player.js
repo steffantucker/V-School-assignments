@@ -25,9 +25,11 @@ function Player(name) {
 	this.score = 0;
 
 	this.attack = function() {
-		return Math.floor(Math.random() * 6) + 1 + this.equipedAttack
-			? 0
-			: this.equipedAttack.baseValue;
+		const damage = Math.floor(Math.random() * 6) + 1; // + this.equipedAttack
+		// ? 0
+		// : this.equipedAttack.baseValue;
+		console.log(damage);
+		return damage;
 	};
 	this.defend = function() {};
 	this.damage = function(n) {
@@ -54,10 +56,10 @@ function Player(name) {
 		this.items.push(item);
 	};
 	this.printInventory = function() {
-		console.log('this is the inventory');
+		return `Salvaged programs:\n${this.items}`;
 	};
 	this.toString = function() {
-		return ``;
+		return `${this.name}\nMemory: ${this.hp.current}/${this.hp.max}`;
 	};
 }
 
