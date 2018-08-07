@@ -15,6 +15,7 @@
  * 	equip						equips an item (by id?)
  * 	addItem					adds item to inventory
  */
+const Clui = require('clui');
 
 function Player(name) {
 	this.name = name;
@@ -55,11 +56,18 @@ function Player(name) {
 	this.addItem = function(item) {
 		this.items.push(item);
 	};
-	this.printInventory = function() {
-		return `Salvaged programs:\n${this.items}`;
+	this.printInventory = function(buffer) {
+		buffer.log('Salvaged programs:');
+		for (let i = 0; i < this.items.length; i++) {
+			buffer.log(`${this.items[i].id}: ${this.items[i].name}`);
+		}
 	};
-	this.toString = function() {
-		return `${this.name}\nMemory: ${this.hp.current}/${this.hp.max}`;
+	this.printInfo = function(buffer) {
+		buffer.log(this.name);
+		buffer.log(
+			Clui.Gauge(this.hp.current, this.hp.max, 20, this.hp.max * 0.2, 'Memory')
+		);
+		buffer.log(`Connections: ${this.points}`);
 	};
 }
 
