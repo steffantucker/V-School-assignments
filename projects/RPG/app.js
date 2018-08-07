@@ -1,7 +1,6 @@
 const cin = require('readline-sync');
-const {Spinner} = require('clui');
+const {Progress} = require('clui');
 const blessed = require('blessed');
-const contrib = require('blessed-contrib');
 
 const Player = require('./player');
 const Item = require('./item');
@@ -12,11 +11,39 @@ const screen = blessed.screen();
 const mainBuffer = blessed.box({
 	top: 0,
 	left: 0,
-	width: '100%',
-	height: '100%-1',
+	width: '70%',
+	height: '99%-2',
 	scrollable: true,
 	alwaysScroll: true,
-	style: {fg: 'cyan'}
+	tags: true,
+	border: 'line',
+	mouse: true,
+	scrollbar: {
+		ch: ' ',
+		inverse: true
+	},
+	style: {border: {fg: 'cyan'}}
+});
+const infoPane = blessed.box({
+	left: '71%',
+	top: 0,
+	width: '29%',
+	height: '99%-2',
+	scrollable: false,
+	tags: true,
+	border: 'line',
+	style: {border: {fg: 'cyan'}}
+});
+const input = blessed.textbox({
+	bottom: 0,
+	left: 0,
+	width: '100%',
+	height: 3,
+	keys: true,
+	mouse: true,
+	inputOnFocus: true,
+	border: 'line',
+	style: {background: {fg: 'green'}}
 });
 screen.append(mainBuffer);
 screen.render();
@@ -34,104 +61,132 @@ screen.render();
  */
 async function main() {
 	screen.render();
-	const spinner = new Spinner('Connecting to the net...');
-	spinner.start();
+	mainBuffer.pushLine('Connecting to the net...');
+	screen.render();
 	await new Promise(resolve => setTimeout(resolve, 3000));
-	spinner.stop();
 	mainBuffer.pushLine('Connection established');
 	screen.render();
-	spinner.message('Checking user...');
-	spinner.start();
+	mainBuffer.pushLine('Checking user...');
+	screen.render();
 	await new Promise(resolve => setTimeout(resolve, 5000));
-	spinner.stop();
-	mainBuffer.pushLine('Invalid credentials');
+	mainBuffer.pushLine('{red-fg}Invalid credentials{/red-fg}');
 	screen.render();
-	spinner.message('Checking for available account slots...');
-	spinner.start();
+	mainBuffer.pushLine('Checking for available account slots...');
+	screen.render();
 	await new Promise(resolve => setTimeout(resolve, 2000));
-	spinner.stop();
-	mainBuffer.pushLine('Slots available');
+	mainBuffer.pushLine('{green-fg}Slots available{/green-fg}');
 	screen.render();
-	player = new Player(cin.question('Enter username: '));
-	spinner.message('Checking username availability...');
-	spinner.start();
+	mainBuffer.pushLine('Enter username: ');
+	screen.append(input);
+	input.focus();
+	screen.render();
+	input.once('submit', text => {
+		input.clearValue();
+		mainBuffer.pushLine(text);
+		player = new Player(text);
+		screen.render();
+		main2();
+	});
+}
+
+async function main2() {
+	mainBuffer.pushLine('Checking username availability...');
+	screen.render();
 	await new Promise(resolve => setTimeout(resolve, 3000));
-	spinner.stop();
 	mainBuffer.pushLine('Username available');
 	mainBuffer.pushLine('Loading...');
-	// TODO gauge
+	const loading = new Progress(30);
+	mainBuffer.pushLine(loading.update(0));
 	screen.render();
-	mainBuffer.pushLine(`Welcome to the net ${player.name}`);
-	screen.render();
-	let playing = true;
-
-	while (player.isAlive && playing) {
-		const infoPane = blessed.box({
-			left: '80%',
-			top: 0,
-			width: '20%',
-			height: '100%-1',
-			scrollable: false,
-			border: 'line',
-			style: {fg: 'cyan'}
-		});
-		const input = blessed.textarea({
-			bottom: 0,
-			left: 0,
-			width: '100%',
-			height: 1,
-			keys: true,
-			mouse: true,
-			inputOnFocus: true,
-			style: {fg: 'green'}
-		});
-		screen.append(infoPane);
-		screen.append(input);
-		mainBuffer.label('Status: Connected');
+	for (let i = 0; i * 0.1 <= 1; i++) {
+		await new Promise(resolve => setTimeout(resolve, 800));
+		mainBuffer.popLine();
+		mainBuffer.pushLine(loading.update(i * 0.1));
 		screen.render();
-		const choice = cin.question('What action to take (h for help)? ');
-		switch (choice[0]) {
-			case 'h': // Help
-				mainBuffer.pushLine('[c]onnect to establish a new connection');
-				mainBuffer.pushLine('\twatch out for rogue processes');
-				mainBuffer.pushLine('[i]nventory to view program inventory');
-				mainBuffer.pushLine('[p]roccess to view process info');
-				mainBuffer.pushLine('[q]uit to quit');
-				screen.render();
-				break;
-			case 'i': // Inventory
-				player.printInventory(infoPane);
-				screen.render();
-				break;
-			case 'p': // Prettyprint player info
-				// Colored name
-				// HP with clui gauge
-				// offensive, if available
-				// defensive, if available
-				player.printInfo(infoPane);
-				screen.render();
-				break;
-			case 'c': // Connect
-				player.score++;
-				if (Math.random() < 0.25) {
-					// Gonna get attacked
-					monsterAttack();
-				}
-				break;
-			case 'q': // Quit
-				playing = false;
-				break;
-			default: // Invalid character
-		}
 	}
-
-	if (!player.isAlive) {
-		mainBuffer.pushLine(`Your process was killed.`);
-	}
-	mainBuffer.label('Disconnecting...');
-	// Clui spinner, 2 seconds
-	mainBuffer.pushLine('Disconnected. Ending process.');
+	mainBuffer.pushLine(`Welcome to the net ${player.name}`);
+	input.focus();
+	screen.render();
+	gameLoop();
 }
+
+function gameLoop() {
+	screen.append(infoPane);
+	mainBuffer.setLabel('Status: Connected');
+	mainBuffer.pushLine('What action to take (h for help)? ');
+	mainBuffer.setScrollPerc(100);
+	screen.render();
+	input.once('submit', mainMenu);
+}
+
+function mainMenu(text) {
+	mainBuffer.pushLine(text);
+	input.clearValue();
+	mainBuffer.setScrollPerc(100);
+	screen.render();
+	switch (text[0]) {
+		case 'h': // Help
+			mainBuffer.pushLine(
+				'{cyan-fg}[c]{/cyan-fg}onnect to establish a new connection'
+			);
+			mainBuffer.pushLine('\t{red-fg}watch out for rogue processes{/red-fg}');
+			mainBuffer.pushLine(
+				'{cyan-fg}[i]{/cyan-fg}nventory to view program inventory'
+			);
+			mainBuffer.pushLine('{cyan-fg}[p]{/cyan-fg}roccess to view process info');
+			mainBuffer.pushLine('{cyan-fg}[q]{/cyan-fg}uit to quit');
+			mainBuffer.setScrollPerc(100);
+			screen.render();
+			break;
+		case 'i': // Inventory
+			infoPane.setLabel('Salvaged Programs');
+			infoPane.setContent('');
+			player.printInventory(infoPane);
+			mainBuffer.setScrollPerc(100);
+			screen.render();
+			break;
+		case 'p': // Pring player info
+			infoPane.setLabel('Process info');
+			infoPane.setContent('');
+			player.printInfo(infoPane);
+			mainBuffer.setScrollPerc(100);
+			screen.render();
+			break;
+		case 'c': // Connect
+			player.score++;
+			if (Math.random() < 0.25) {
+				// Gonna get attacked
+				monsterAttack();
+			} else {
+				mainBuffer.pushLine('Good connection, no rogue process present');
+				mainBuffer.setScrollPerc(100);
+				screen.render();
+			}
+			if (!player.isAlive) dead();
+			break;
+		case 'q': // Quit
+			quit();
+			break;
+		default: // Invalid character
+	}
+	input.focus();
+	mainBuffer.setScrollPerc(100);
+	screen.render();
+	gameLoop();
+}
+
+function dead() {
+	mainBuffer.pushLine(`Your process was killed.`);
+	quit();
+}
+
+async function quit() {
+	mainBuffer.setLabel('Disconnecting...');
+	mainBuffer.pushLine('Disconnected. Ending process.');
+	screen.render();
+	await new Promise(resolve => setTimeout(resolve, 5000));
+}
+
 function battle(pchoice, mchoice, monster) {
 	if (pchoice === 'attack') {
 		let damage = player.attack();
@@ -158,37 +213,65 @@ function battle(pchoice, mchoice, monster) {
 			}'`
 		);
 	}
+	screen.render();
 }
+
+let monster = null;
+let options = [];
 function monsterAttack() {
-	const monster = new Monster();
-	const options = ['Attack', 'Defend', 'Flee'];
-	let fled = false;
-	while (monster.isAlive && player.isAlive && !fled) {
-		const choice = cin.keyInSelect(options, 'Make a choice: ');
-		const mchoice = ['attack', 'defend'][Math.floor(Math.random() * 2)];
-		switch (choice) {
-			case 0: // Attack
-			case 1: // Defend
-				battle(options[choice].toLowerCase(), mchoice, monster);
-				break;
-			case 2: // Flee
-				if (Math.random() < 0.5) {
-					mainBuffer.pushLine(`Succeessfully fled!`);
-					fled = true;
-				} else {
-					// Have monster attack too
-					mainBuffer.pushLine(`Couldn't flee!`);
-				}
-				break;
-			default:
-		}
+	monster = new Monster();
+	options = ['Attack', 'Defend', 'Flee'];
+	mainBuffer.setLabel('Status: Rogue process attack');
+	mainBuffer.pushLine('');
+	options.forEach((v, i) =>
+		mainBuffer.pushLine(`{cyan-fg}[${i + 1}]{/cyan-fg} ${v}`)
+	);
+	mainBuffer.pushLine('Make a choice: ');
+	screen.render();
+	input.once('submit', monsterLoop);
+}
+
+function monsterLoop(choice) {
+	input.clearValue();
+	choice = Number(choice) - 1;
+	mainBuffer.pushLine(choice);
+	screen.render();
+	const mchoice = ['attack', 'defend'][Math.floor(Math.random() * 2)];
+	switch (choice) {
+		case 0: // Attack
+		case 1: // Defend
+			battle(options[choice].toLowerCase(), mchoice, monster);
+			break;
+		case 2: // Flee
+			if (Math.random() < 0.5) {
+				mainBuffer.pushLine(`Disconnected`);
+				screen.render();
+				gameLoop();
+			} else {
+				// Have monster attack too
+				mainBuffer.pushLine(`Unable to disconnect`);
+			}
+			screen.render();
+			break;
+		default:
 	}
 	if (!monster.isAlive) {
 		mainBuffer.pushLine(`Rogue process eliminated.`);
 		const item = new Item();
 		mainBuffer.pushLine(`Salvaged ${item} from remaining bits.`);
 		player.addItem(item);
+		mainBuffer.setScrollPerc(100);
+		screen.render();
+		gameLoop();
 	}
+	mainBuffer.pushLine('');
+	options.forEach((v, i) =>
+		mainBuffer.pushLine(`{cyan-fg}[${i + 1}]{/cyan-fg} ${v}`)
+	);
+	mainBuffer.setScrollPerc(100);
+	input.focus();
+	screen.render();
+	input.once('submit', monsterLoop);
 }
 
 screen.key(['escape', 'q', 'C-c'], () => process.exit(0));

@@ -29,17 +29,16 @@ function Player(name) {
 		const damage = Math.floor(Math.random() * 6) + 1; // + this.equipedAttack
 		// ? 0
 		// : this.equipedAttack.baseValue;
-		console.log(damage);
 		return damage;
 	};
 	this.defend = function() {};
 	this.damage = function(n) {
-		this.hp.current -=
-			this.equipedDefense === null
-				? n
-				: n > this.equipedDefense.baseValue
-					? n - this.equipedDefense.basevalue
-					: 0;
+		this.hp.current -= n;
+		// This.equipedDefense === null
+		// 	? n
+		// 	: n > this.equipedDefense.baseValue
+		// 		? n - this.equipedDefense.basevalue
+		// 		: 0;
 	};
 	this.heal = function(n) {
 		this.hp.current += n;
@@ -57,17 +56,16 @@ function Player(name) {
 		this.items.push(item);
 	};
 	this.printInventory = function(buffer) {
-		buffer.log('Salvaged programs:');
 		for (let i = 0; i < this.items.length; i++) {
-			buffer.log(`${this.items[i].id}: ${this.items[i].name}`);
+			buffer.pushLine(`${this.items[i].id}: ${this.items[i].name}`);
 		}
 	};
 	this.printInfo = function(buffer) {
-		buffer.log(this.name);
-		buffer.log(
+		buffer.pushLine(this.name);
+		buffer.pushLine(
 			Clui.Gauge(this.hp.current, this.hp.max, 20, this.hp.max * 0.2, 'Memory')
 		);
-		buffer.log(`Connections: ${this.points}`);
+		buffer.pushLine(`Connections: {green-fg}${this.points}{/green-fg}`);
 	};
 }
 
