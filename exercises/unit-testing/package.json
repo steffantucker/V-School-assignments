@@ -1,6 +1,6 @@
 {
-  "name": "RPG",
-  "version": "1.1.0",
+  "name": "unit-testing",
+  "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -8,14 +8,8 @@
   },
   "keywords": [],
   "author": "Steffan Tucker <steffantucker@protonmail.com>",
-  "license": "GPL-3.0",
+  "license": "0BSD",
   "dependencies": {
-    "blessed": "^0.1.81",
-    "blessed-contrib": "^4.8.5",
-    "clui": "^0.3.6",
-    "readline-sync": "^1.4.9"
-  },
-  "devDependencies": {
-    "xo": "^0.21.1"
+    "chai": "^4.1.2"
   }
 }

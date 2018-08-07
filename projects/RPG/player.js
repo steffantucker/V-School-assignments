@@ -15,6 +15,7 @@
  * 	equip						equips an item (by id?)
  * 	addItem					adds item to inventory
  */
+const Clui = require('clui');
 
 function Player(name) {
 	this.name = name;
@@ -28,17 +29,16 @@ function Player(name) {
 		const damage = Math.floor(Math.random() * 6) + 1; // + this.equipedAttack
 		// ? 0
 		// : this.equipedAttack.baseValue;
-		console.log(damage);
 		return damage;
 	};
 	this.defend = function() {};
 	this.damage = function(n) {
-		this.hp.current -=
-			this.equipedDefense === null
-				? n
-				: n > this.equipedDefense.baseValue
-					? n - this.equipedDefense.basevalue
-					: 0;
+		this.hp.current -= n;
+		// This.equipedDefense === null
+		// 	? n
+		// 	: n > this.equipedDefense.baseValue
+		// 		? n - this.equipedDefense.basevalue
+		// 		: 0;
 	};
 	this.heal = function(n) {
 		this.hp.current += n;
@@ -55,11 +55,17 @@ function Player(name) {
 	this.addItem = function(item) {
 		this.items.push(item);
 	};
-	this.printInventory = function() {
-		return `Salvaged programs:\n${this.items}`;
+	this.printInventory = function(buffer) {
+		for (let i = 0; i < this.items.length; i++) {
+			buffer.pushLine(`${this.items[i].id}: ${this.items[i].name}`);
+		}
 	};
-	this.toString = function() {
-		return `${this.name}\nMemory: ${this.hp.current}/${this.hp.max}`;
+	this.printInfo = function(buffer) {
+		buffer.pushLine(this.name);
+		buffer.pushLine(
+			Clui.Gauge(this.hp.current, this.hp.max, 20, this.hp.max * 0.2, 'Memory')
+		);
+		buffer.pushLine(`Connections: {green-fg}${this.points}{/green-fg}`);
 	};
 }
 

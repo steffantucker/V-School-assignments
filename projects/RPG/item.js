@@ -18,7 +18,7 @@ const Item = function() {
 		this.type = Math.random() < 0.5 ? 'defense' : 'attack';
 		this.name =
 			names[this.type][Math.floor(Math.random * names[this.type].length)];
-		this.baseValue = Math.floor(Math.random() * 10 + 1);
+		this.baseValue = Math.floor(Math.random() * 10) + 1;
 	};
 };
 
