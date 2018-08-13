@@ -5,33 +5,66 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>VSchool TODO</title>
-	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-<script src="semantic/semantic.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+	<script src="semantic/semantic.min.js"></script>
 </head>
 <body>
 	<noscript>Sorry, this site only works with Javascript</noscript>
+	<div id='title'><h1>TODOer</h1></div>
+	<header id="header"></header>
 	<!-- initial login screen -->
-	<form name="user" onsubmit="submitUsername(event)" class='inputArea'>
-		<label>Enter username:
-			<input type="text" name="username" id="username" placeholder="Enter username">
-		</label>
-		<button>Submit</button>
-	</form>
-	<!-- todo area -->
-	<form name="todo" id="inputArea" class='hidden'>
-		<input type="text" name="title" placeholder="Title">
-		<input type="textarea" name="description" placeholder="Description">
-		<input type="number" name="price" placeholder="price">
-		<button>Submit</button>
-	</form>
+	<div class="inputArea" id="logindiv">
+		<div class="ui left icon action input" id="login">
+			<i class="users icon"></i>
+			<input id="username" type="text"  placeholder="Enter username">
+			<button class="ui button" onclick="submitUsername(event)">Login</button>
+		</div>
+	</div>
+	<!-- todos screen -->
+	<div name="todo" id="inputArea" class='hidden'>
+	</div>
 	<div id="todoList" class="ui cards">
 	</div>
+	<div class="ui mini modal" id="modal"></div>
+	<div class="ui modal" id='newModal'>
+		<div class="header">New TODO</div>
+		<div class="content">
+			<div class="ui labeled input">
+				<div class="ui label">Title</div>
+				<input class="newInput" type="text" id="newTitle">
+			</div><br />
+			<div class="ui labeled input">
+				<div class="ui label">Description</div>
+				<input class="newInput" type="text" id="newDescription">
+			</div>
+		</div>
+		<div class="extra content">
+			<div class="ui right labeled input">
+				<input class="newInput" type="number" id="newPrice">
+				<div class="ui label">units</div>
+			</div><br />
+			<div class="ui labeled input">
+				<div class="ui label">Image URL</div>
+				<input class="newInput" type="text" id="newImgUrl">
+			</div>
+		</div>
+		<div class="actions">
+			<div class="ui negative button">Cancel</div>
+			<div class="ui positive button">Add</div>
+		</div>
+	</div>
+	<script src="semantic/components/checkbox.min.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="app.js"></script>
 </body>
 </html>
+
+<!-- save/cancel buttons
+<div class="ui right floated icon buttons">
+  <button class="ui positive button"><i class="save icon"></i></button>
+  <div class="or"></div>
+  <button class="ui negative button"><i class="cancel icon"></i></button>
+</div>
+-->
