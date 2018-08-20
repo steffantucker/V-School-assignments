@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body { 
+	display: grid;
+	grid-template: "click score" 1fr / 3fr 1fr;
+	margin: 0;
+}
+
+#clickArea {
+	width: 100%;
+	height: 100%;
+	background: aliceblue;
+	grid-area: click;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#infoArea {
+	display: none;
+}
+
+#scoreArea {
+	padding: 3px;
+	background: plum;
+}
+
+#GO {
+	width: 50%;
+	height: 25%;
+	background: green;
+	color: white;
+	font-size: 1.5rem;
+	border-radius: 20px;
+}

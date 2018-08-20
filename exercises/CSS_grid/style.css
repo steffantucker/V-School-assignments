@@ -1,0 +1,145 @@
+body {
+	height: 1200px;
+}
+
+.corners {
+  border-radius: 5px;
+}
+
+.red {
+  background: #f00;
+}
+
+.purple {
+  background: #7c00fe;
+}
+
+.green {
+  background: #008e0d;
+}
+
+.mauve {
+  background: #96007e;
+}
+
+.yellow {
+  background: #e5ff15;
+}
+
+.q1 {
+  width: 430px;
+  height: 140px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / 1fr 1fr 2fr;
+  grid-gap: 10px;
+  margin-bottom: 8px;
+}
+
+.q1 > .red {
+  grid-column: 1 / span 2;
+}
+
+.q1 > .purple {
+  grid-column: 3;
+}
+
+.q1 > .mauve {
+  grid-column: 2 / span 2;
+}
+
+.q1 > .yellow {
+  grid-column: 1 / span 3;
+}
+
+.q2 {
+  width: 350px;
+  height: 320px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / 2fr 1fr 1fr;
+  grid-gap: 10px;
+  margin-bottom: 8px;
+}
+
+.q2 > .red {
+  grid-column: 1 / span 3;
+}
+
+.q2 > .purple {
+  grid-row: 2 / span 2;
+}
+
+.q2 > .green {
+  grid-column: 2 / span 2;
+}
+
+.q2 > .mauve {
+}
+
+.q3 {
+	width: 430px;
+	display: grid;
+	grid-auto-flow: column;
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+	grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+	grid-gap: 10px;
+	margin-bottom: 8px;
+}
+
+.q4 {
+	width: 100%;
+	display: grid;
+	grid-template: 'header header header' auto
+								 's1 content s2' auto
+								 'footer footer footer' auto / auto;
+	grid-gap: 10px;
+	color: white;
+	font-size: 1.3rem;
+}
+
+.q4>div {
+	padding: 5px;
+}
+.q4>.header {
+	background: grey;
+	grid-area: header;
+}
+
+.q4>.s1 {
+	background: darkslategrey;
+	grid-area: s1;
+}
+
+.q4>.s2 {
+	background: lightgrey;
+	grid-area: s2;
+}
+
+.q4>.content {
+	background: darkslategray;
+	grid-area: content;
+}
+
+.q4>.footer {
+	background: grey;
+	grid-area: footer;
+}
+
+
+@media only screen and (max-width: 720px) {
+	.q4 {
+		grid-template: "header header" auto
+									 "s1 content" auto
+									 "s2 s2" auto
+									 "footer footer" auto / 1fr 2fr;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.q4 {
+		grid-template: "header" auto
+									 "s1" auto
+									 "content" auto
+									 "s2" auto
+									 "footer" auto / auto;
+	}
+}

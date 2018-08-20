@@ -1,0 +1,478 @@
+@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
+
+@font-face {
+	font-family: symbols;
+	src: url('fonts/verdemoderna.woff') format('woff');
+	font-style: normal;
+	font-weight: normal;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-family: 'Libre Baskerville', serif;
+}
+
+/* header start */
+header {
+	background-image: url('images/noise.png'), url('images/gridlines-opaque.png'), url('images/contours-opaque.png'), url('images/huntington.jpg');
+	background-attachment: fixed, fixed, fixed, scroll;
+	background-size: auto, auto, auto, cover;
+	background-position: 0 0, -5px -15px, 0 0, 0 0;
+	color: white;
+	text-align: center;
+	border-top: 10px solid #164649;
+	padding-top: 20px;
+
+}
+
+header h1::before {
+	display: block;
+	position: relative;
+	padding-bottom: 20px;
+	width: 50px;
+	height: 50px;
+	left: 50%;
+	margin-left: -25px;
+	content: '';
+	background: url('images/enso.svg') ;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	opacity: 0.6;
+}
+
+header h1 {
+	font-family: 'Julius Sans One', sans-serif;
+	font-weight: 400;
+	font-size: 26px;
+	margin: 0;
+}
+
+header h2 {
+	padding-bottom: 15px;
+	font-family: 'Libre Baskerville', sans-serif;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 12pt;
+	color: rgba(255,255,255,0.6)
+}
+
+#designContainer {
+	width: 100%;
+	display: grid;
+	grid-template: 'left label right' 67px / 60px auto 60px;
+	color: rgba(255,255,255,0.6);
+	font-family: 'Julius Sans One', sans-serif;
+}
+
+#leftArrow, #label, #rightArrow {
+	background: rgba(255,255,255,0.3);
+}
+
+#label:hover, #rightArrow:hover {
+	color: rgba(255,255,255,0.9);
+}
+
+#leftArrow, #rightArrow {
+	font-family: symbols;
+	font-size: 45px;
+	padding-top: 7px;
+}
+
+#label {
+	padding-top: 25px;
+}
+/* header end */
+
+#downloadArea {
+	display: none;
+}
+
+#s2, .title {
+	font-family: 'Julius Sans One', sans-serif;
+}
+
+/* shared main content start */
+main {
+	padding: 5px 40px;
+	color: #325050;
+}
+
+#m1 {
+	padding-top: 35px;
+}
+
+main p {
+	font-size: 10pt;
+	opacity: 0.9;
+	line-height: 20pt;
+	padding: 0 10px 15px 0;
+	margin: 0;
+}
+
+main h2 {
+	font-family: 'Julius Sans One', sans-serif;
+	font-weight: 400;
+	font-size: 15pt;
+	width: 80%;
+	padding: 25px 0 10px 0;
+	margin: 0;
+}
+
+main a {
+	color: #0d8ba1;
+	text-decoration: none;
+}
+
+main a:hover {
+	text-decoration: underline;
+}
+/* shared main content end */
+
+/* main m2 start */
+#m2 {
+	background-image: url('images/gridlines-opaque.png'), url('images/contours-opaque.png'), url('images/bamboo.png');
+	background-attachment: fixed, fixed, scroll;
+	background-size: auto, auto, cover;
+	background-position: -5px -15px, 0 0, 0 0;
+	background-color: rgba(138,188,159,0.5);
+
+}
+/* main m2 end */
+
+/* aside 1 start */
+#s1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: auto;
+	background: #edf4f0;
+}
+
+.creator {
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	font-style: italic;
+	font-size: 9pt;
+	color: rgba(0,0,0,0.4);
+	padding: 15px 25px;
+}
+
+.title, .author {
+	text-decoration: none;
+	font-style: normal;
+}
+
+.title {
+	color: #607746;
+	font-size: 14pt;
+}
+
+.author {
+	color: #616857;
+}
+
+.author:hover, .title:hover {
+	color: #49968e;
+}
+/* aside 1 end */
+
+/* aside 2 start */
+#s2 {
+	background-image: url('images/bamboo.png');
+	background-color: rgba(138,188,159,0.5);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: auto;
+}
+
+#s2 a {
+	color: #607476;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	padding: 15px 25px;
+}
+
+#s2 a:hover {
+	color: #49968e;
+}
+/* aside 2 end */
+
+/* footer start */
+footer {
+	text-align: center;
+	background: #134347;
+	padding: 1px;
+}
+
+#book {
+	background-image: url('images/noise.png'), url('images/gridlines-opaque.png'), url('images/contours-opaque.png'), url('images/koi.jpg');
+	background-attachment: fixed, fixed, fixed, scroll;
+	background-size: auto, auto, auto, cover;
+	background-position: 0 0, -5px -20px, 0 0, 0 -30px;
+	padding: 25px;
+	font-family: 'Libre Baskerville', sans-serif;
+	font-style: italic;
+	font-size: 16pt;
+	color: rgba(255,255,255,0.4);
+	line-height: 32pt;
+	margin: -1px;
+}
+
+#book a {
+	text-decoration: none;
+	font-style: normal;
+	color: rgba(255,255,255,0.7)
+}
+
+#book a:hover {
+	text-decoration: underline;
+}
+
+#links {
+	margin: 35px auto;
+	width: 250px;
+	font-family: symbols;
+	font-size: 28pt;
+	display: grid;
+	grid-template: 1fr / repeat(5, 1fr);
+}
+
+#links a {
+	text-decoration: none;
+	color: rgba(255,255,255,0.4);
+}
+
+#html5::before {
+	content: '5';
+}
+
+#css3::before {
+	content: '3'
+}
+
+#cc::before {
+	content: 'c'
+}
+
+#accessability::before {
+	content: 'a'
+}
+
+#github::before {
+	content: 'g'
+}
+
+#html5:hover::before {
+	content: '%'
+}
+
+#css3:hover::before {
+	content: '#'
+}
+
+#cc:hover::before {
+	content: 'C'
+}
+
+#accessability:hover::before {
+	content: 'A'
+}
+
+#github:hover::before {
+	content: 'G'
+}
+/* footer end */
+
+#ghost {
+	display: none;
+}
+
+@media only screen and (min-width: 484px) {
+	/* icon moves to left of header */
+	header h1:before, header h1 {
+		display: inline-block;
+	}
+
+	header h1:before {
+		top: 20px;
+		left: -20px;
+		padding-bottom: 0;
+	}
+
+	#links {
+		font-size: 36pt;
+		grid-gap: 36px;
+		width: 450px;
+	}
+}
+@media only screen and (min-width: 584px ) {
+	#downloadArea {
+		display: block;
+	}
+
+	#downloadArea a::before {
+		position: relative;
+		top: 2px;
+		font-family: symbols;
+		font-size: 12pt;
+		content: 'D';
+		color: #a9b995;
+		background: #d9e1cd;
+		padding: 2px;
+		margin-right: 5px;
+		border-radius: 2px;
+		transition: all 0.2s ease-in;
+	}
+
+	#downloadArea a {
+		color: #809b7e;
+		font-family: 'Julius Sans One', sans-serif;
+		padding: 5px;
+		transition: all 0.2s ease-in;
+	}
+
+	#downloadArea a:hover, #downloadArea a:hover::before {
+		color: white;
+		background: #3d8a9f;
+		text-decoration: none;
+	}
+	/* header and icon grow*/
+	/* download area appears */
+}
+@media only screen and (min-width: 1115px) {
+	/* sidebars move to right of content */
+	/* 'view all designs section' moves to right */
+	/* header and icon grow */
+	/* icon becomes whiter */
+	body {
+		display: grid;
+		grid-template: "head head" auto
+									 "m1 s1" auto
+									 "m2 s2" auto
+									 "m3 fill" auto
+									 "foot foot" auto / 1fr 385px;
+	}
+
+	header {
+		grid-area: head;
+		display: grid;
+		grid-template: "title design" 300px / 1fr 385px;
+		padding: 0;
+	}
+
+	header h1 {
+		font-size: 45pt;
+		padding-top: 50px;
+	}
+
+	header h1:before {
+		width: 100px;
+		height: 100px;
+		opacity: 1;
+		top: 50px;
+	}
+
+	header h2 {
+		font-size: 20pt;
+		margin: 0;
+	}
+
+	#title {
+		grid-area: 'title';
+	}
+
+	#designContainer {
+		grid-area: 'design';
+		background: rgba(0,0,0,0.1);
+		padding: 100px 10px;
+	}
+
+	#leftArrow, #label, #rightArrow {
+		background: rgba(255,255,255,0.1);
+	}
+	
+	#label:hover, #rightArrow:hover {
+		color: rgba(255,255,255,0.9);
+		background: rgba(255,255,255,0.2);
+	}
+
+	#label {
+		font-size: 15pt;
+	}
+
+	#m1 {
+		grid-area: m1;
+	}
+
+	#m2 {
+		grid-area: m2;
+	}
+
+	#m3 {
+		grid-area: m3;
+	}
+
+	#s1 {
+		grid-area: s1;
+		display: flex;
+		flex-direction: column;
+		padding: 50px 100px 0 60px;
+	}
+
+	.creator {
+		font-size: 11pt;
+		padding: 25px 0;
+		margin: 0;
+	}
+
+	.creator:last-child {
+		border: 0;
+	}
+
+	.title {
+		font-size: 15pt;
+	}
+
+	#s2 {
+		grid-area: s2;
+		display: flex;
+		flex-direction: column;
+		padding: 80px 100px 0 60px;
+		background-color: rgba(138,188,159,0.6);
+	}
+
+	#s2 a {
+		font-size: 16pt;
+		padding: 25px 0;
+	}
+	
+	#s2 a:first-child {
+		border-top: 1px solid rgba(0,0,0,0.2);
+	}
+
+	#ghost {
+		display: block;
+		grid-area: fill;
+		background-color: #e5ede8;
+	}
+
+	footer {
+		grid-area: foot;
+	}
+
+	#book {
+		padding: 100px 50px;
+		font-size: 26pt;
+		line-height: 50pt;
+	}
+
+	#links {
+		width: 780px;
+		font-size: 53pt;
+		grid-gap: 100px;
+	}
+}
