@@ -1,0 +1,9 @@
+#root {
+  text-align: center;
+}
+
+.App {
+  display: flex;
+  width: 500px;
+  margin: auto;
+}
