@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.friendList {
+  display: flex;
+}
+
+.friend {
+  background-color: darkseagreen;
+  border-radius: 2px;
+  margin: 3px;
+  padding: 25px;
+}
+
+.friend h2 {
+  margin: 0;
+}
+
+.age {
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: right;
+}
+
+.pet {
+  
+}
