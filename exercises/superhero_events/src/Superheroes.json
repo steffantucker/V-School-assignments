@@ -1,0 +1,31 @@
+[{
+	"name": "Gwenpool",
+	"identity": "Gwendolyn Poole",
+	"catchphrase": "None of this is real to me.",
+	"img": "https://pbs.twimg.com/profile_images/700693972151209988/p5fODEpQ_400x400.jpg"
+},{
+	"name": "Howard the Duck",
+	"identity": "Howard the Duck",
+	"catchphrase": " What's y'r problem, space shrew? Y'got somethin' against ducks?",
+	"img":"http://assets2.ignimgs.com/2015/04/18/howard-moviejpg-c2d814_1280w.jpg"
+},{
+	"name": "Batroc the Leaper",
+	"identity": "Georges Batroc",
+	"catchphrase": "Ah. Non.",
+	"img": "http://vignette4.wikia.nocookie.net/marveldatabase/images/5/5d/Georges_Batroc_%28Earth-20051%29_Marvel_Adventures_The_Avengers_Vol_1_35.jpg/revision/latest?cb=20140719122803"
+},{
+	"name": "Mega Tony",
+	"identity": "unknown",
+	"catchphrase": "Okay, I can make a compound.",
+	"img": "https://static.comicvine.com/uploads/square_small/10/103503/5372681-mega+tony.jpg"
+},{
+	"name": "Terrible Eye",
+	"identity": "Sarah",
+	"catchphrase": "Unknowable lords of witchery, I call to thee..",
+	"img": "https://vignette.wikia.nocookie.net/marveldatabase/images/5/59/Terrible_Eye_%28Sarah%29_%28Earth-616%29_from_Unbelievable_Gwenpool_Vol_1_8_001.jpg/revision/latest?cb=20180112190825"
+},{
+	"name": "Poole Boys",
+	"identity": "various",
+	"catchphrase": "We don't get the kind of action you do",
+	"img": "https://vignette.wikia.nocookie.net/marveldatabase/images/1/1e/Poole_Boys_%28Earth-616%29_from_Unbelievable_Gwenpool_Vol_1_10_001.jpg/revision/latest?cb=20170123052655"
+}]

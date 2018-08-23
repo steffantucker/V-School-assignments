@@ -1,0 +1,34 @@
+body {
+  background: plum;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin: auto;
+  justify-content: center;
+}
+
+.hero {
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid grey;
+  background: aqua;
+}
+
+.heroName {
+  font-size: 1.3em;
+
+}
+
+.heroIdentity {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.heroImage {
+  max-width: 200px;
+  max-height: 200px;
+}
