@@ -6,10 +6,14 @@ export default class Hero extends Component {
 		this.name = props.info.name;
 		this.identity = props.info.identity;
 		this.image = props.info.img;
-		this.catchprase = props.info.catchphrase;
+		this.catchphrase = props.info.catchphrase;
 	}
 
-	click = () => alert(this.catchprase)
+	click = () => {
+		const voice = new SpeechSynthesisUtterance(this.catchphrase);
+		window.speechSynthesis.speak(voice);
+		alert(this.catchphrase)
+	}
 
 	render() {
 		return <div className="hero" onClick={this.click}>

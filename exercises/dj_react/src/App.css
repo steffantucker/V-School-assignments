@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+  width: 100vw;
+  height: 500px;
+}
+
+.App {
+  width: 405px;
+  padding: 10px;
+  margin: auto;
+  display: grid;
+  grid-gap: 5px;
+  grid-template: 200px 200px repeat(4, 50px) / 200px 200px 
+}
+
+.square {
+  border: inset grey 1px;
+}
