@@ -1,0 +1,34 @@
+.ugly {
+	position: relative;
+	width: 200px;
+	min-height: 300px;
+	margin: auto;
+	margin-bottom: 5px;
+	padding: 5px;
+	padding-bottom: 30px;
+	border: 1px solid blue;
+	border-radius: 3px;
+	background: blue;
+	color: grey;
+}
+
+img {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+#delete {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+#comment {
+	position: absolute;
+	width: 200px;
+	bottom: 5px;
+	left: 5px;
+	display: grid;
+	grid-template: 1fr / 70% 30%;
+}
