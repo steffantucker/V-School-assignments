@@ -1,0 +1,14 @@
+.comment {
+	position:relative;
+	padding: 10px;
+	margin: 5px 0;
+	text-align: left;
+	background: purple;
+	color: #999999;
+}
+
+.delComment {
+	position:absolute;
+	top: 0;
+	right: 0;
+}
