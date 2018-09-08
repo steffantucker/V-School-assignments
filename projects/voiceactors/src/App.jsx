@@ -4,6 +4,8 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import Animelist from "./components/Animelist";
 import ShowAnime from "./components/ShowAnime";
+import Characterlist from "./components/Characterlist";
+import ShowCharacter from "./components/ShowCharacter";
 import "./App.css";
 
 class App extends Component {
@@ -15,8 +17,9 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/anime" component={Animelist} />
           <Route path="/anime/:filter?" component={ShowAnime} />
-          {/* <Route path='/character' component={ Characterlist } />
-          <Route path='/person' component={ Personlist} /> */}
+          <Route exact path="/character" component={Characterlist} />
+          <Route path="/character/:filter?" component={ShowCharacter} />
+          {/* <Route path='/person' component={ Personlist} /> */}
         </Switch>
       </div>
     );

@@ -17,6 +17,9 @@ class Navigation extends Component {
             <LinkContainer to="/anime">
               <NavItem>Anime</NavItem>
             </LinkContainer>
+            <LinkContainer to="/character">
+              <NavItem>Character</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Media } from "react-bootstrap";
 import uuidv4 from "uuid/v4";
-import { getAnime } from "../../redux";
+import { getAnime, clearTimers } from "../../redux";
 import Listitem from "../Listitem";
 
 class ShowAnime extends Component {
   componentWillMount() {
+    clearTimers();
     this.props.getAnime(this.props.match.params.filter);
   }
 
@@ -32,14 +33,16 @@ class ShowAnime extends Component {
         {this.props.results ? (
           <Media style={this.styles.anime}>
             <Media.Left height={128}>
-              <img src={this.props.results.image} />
+              <img src={this.props.results.image} alt="" />
             </Media.Left>
             <Media.Body>
               <Media.Heading>{this.props.results.title}</Media.Heading>
               <p>{this.props.results.description}</p>
             </Media.Body>
           </Media>
-        ) : null}
+        ) : <div style={({textAlign: 'center'})}>
+          <div className="loader"></div>
+        </div>}
         <div style={this.styles.container}>
           {this.props.type === "character" &&
             this.props.results.characters.map(v => {

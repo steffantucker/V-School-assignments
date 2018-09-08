@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
+import { clearTimers } from "../../redux";
 
 const Home = () => {
-	return (
-		<div>
-			This will have instruction for use
-		</div>
-	);
+	clearTimers();
+  return <div>This will have instruction for use</div>;
 };
 
 export default Home;
