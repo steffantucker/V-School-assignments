@@ -6,16 +6,20 @@ import { LinkContainer } from "react-router-bootstrap";
 class Navigation extends Component {
   render() {
     return (
-      <Navbar collapseOnSelect>
+      <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
             <NavLink to="/">Home</NavLink>
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
             <LinkContainer to="/anime">
               <NavItem>Anime</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/character">
+              <NavItem>Character</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

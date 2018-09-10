@@ -5,22 +5,24 @@ import Listitem from "../Listitem";
 import Search from "../Search";
 import { getAnime, clearTimers } from "../../redux";
 
-class Animelist extends Component {
+class Characterlist extends Component {
   componentDidMount() {
     clearTimers();
   }
+
   render() {
     return (
       <div>
-        <Search type="anime" />
+        <Search type="character" />
         <div className="displayContainer">
-          {this.props.type === "anime" &&
+          {this.props.type === "character" &&
             this.props.list.map(v => (
               <Listitem
-                key={v.id}
-                click={() => this.props.history.push(`/anime/${v.id}`)}
-                name={v.title}
+                key={uuidv4()}
+                click={() => this.props.history.push(`/character/${v.id}`)}
+                name={v.name}
                 image={v.img}
+                description={v.anime}
               />
             ))}
         </div>
@@ -32,4 +34,4 @@ class Animelist extends Component {
 export default connect(
   state => ({ list: state.results, type: state.type }),
   { getAnime }
-)(Animelist);
+)(Characterlist);

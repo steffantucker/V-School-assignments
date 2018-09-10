@@ -1,0 +1,23 @@
+#mainInput {
+	width: 100%;
+	max-width: 200px;
+	display: grid;
+	grid-template: repeat(7, 1fr) / 1fr;
+	margin: auto;
+	background: orange
+}
+
+input[type=text] {
+	font-size: 1em;
+	background: blue;
+	color: lightgrey;
+}
+
+label {
+	margin-top: 5px;
+}
+
+button {
+	color: lightgrey;
+	background: orangered;
+}
