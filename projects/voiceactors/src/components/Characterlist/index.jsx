@@ -9,7 +9,6 @@ class Characterlist extends Component {
   componentDidMount() {
     clearTimers();
   }
-
   render() {
     return (
       <div>
