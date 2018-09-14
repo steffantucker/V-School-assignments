@@ -33,19 +33,12 @@ class ShowAnime extends Component {
               <p>{this.props.results.description}</p>
             </Media.Body>
           </Media>
-<<<<<<< HEAD
         ) : (
           <div style={{ textAlign: "center" }}>
             <div className="loader" />
           </div>
         )}
         <div className="displayContainer">
-=======
-        ) : <div style={({textAlign: 'center'})}>
-          <div className="loader"></div>
-        </div>}
-        <div style={this.styles.container}>
->>>>>>> 5aaf62fe07bdc7419bdeec1251f08cd37ebbc8c0
           {this.props.type === "character" &&
             this.props.results.characters.map(v => {
               return (

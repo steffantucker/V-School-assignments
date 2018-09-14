@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+}
+
+.bounties {
+  list-style: none;
+  width: 300px;
+  margin: 10px auto;
+}
+
+.bounty {
+  position: relative;
+  left: 0;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  align-content: center;
+  cursor: pointer;
+  margin: 3px;
+  padding: 3px;
+}
+
+.bountylink {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bountydelete {
+  background-color: #eee;
+  border: none;
+  padding: 3px 7px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Sith {
+  color: red;
+  background: black;
+}
+
+.Jedi {
+  color: white;
+  background: mediumblue;
+}
+
+.navbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 150px;
+  background: #eee;
+  display: flex;
+}
+
+.navbar a {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1.4em;
+  font-weight: bolder;
+  margin: 3px;
+  padding: 3px;
+  text-decoration: none;
+  color: #222;
+  align-self: center;
+}
+
+.navbar a:hover {
+  border-top: 3px solid #222;
+  border-bottom: 3px solid #222;
+  background: #ddd;
+}
+
+#homeimage img {
+  max-height: 100px;
+  padding: 3px;
+}
+
+#homeimage:hover {
+  border: none;
+  background: #ddd;
+}
