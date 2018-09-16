@@ -3,12 +3,6 @@ import { Link } from "react-router-dom";
 import bigshot from "../../resources/BigShot.png";
 
 class Nav extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {}
-
   render() {
     return (
       <div className="navbar">

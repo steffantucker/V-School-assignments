@@ -19,7 +19,7 @@ class List extends Component {
 
   deleteBounty = id => {
     axios
-      .delete("/bounty/${id}")
+      .delete(`/bounty/${id}`)
       .then(res =>
         this.setState({
           bounties: this.state.bounties.filter(v => v.id !== id)

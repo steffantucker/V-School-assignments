@@ -1,7 +1,8 @@
-const server = require("express")();
-const uuid = require("uuid/v4");
-const bodyParser = require("body-parser");
+const express = require("express");
+const server = express();
 const Ajv = require("ajv");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
 
 const bountiesRoute = require("./routes/bounties");
 const bountyRoute = require("./routes/bounty");
@@ -88,44 +89,17 @@ const schema = {
   additionalProperties: false
 };
 
-server.use(bodyParser.json());
-// .use("/bounties", bountiesRoute)
-// .use("/bounty", bountyRoute);
+server
+  .use(express.json())
+  .use("/bounties", bountiesRoute)
+  .use("/bounty", bountyRoute);
 
-server.get("/bounties", (_, res) => {
-  res.send(db);
-});
-
-server.get("/bounty/:id", (req, res) => {
-  const bounty = db.find(v => v.id === Number(req.params.id));
-  if (~~bounty) res.sendStatus(404);
-  res.send(bounty);
-});
-
-server.post("/bounties", (req, res) => {
-  req.body.id = nextId++;
-  res.location = `/bounty/${req.body.id}`;
-  if (ajv.validate(schema, req.body)) {
-    db.push(req.body);
-    // Should send null?
-    res.send(201, req.body);
-  } else {
-    res.sendStatus(400);
-  }
-});
-
-server.delete("/bounty/:id", (req, res) => {
-  const bounty = db.findIndex(v => v.id === Number(req.params.id));
-  if (~~bounty) res.sendStatus(404);
-  db.splice(bounty, 1);
-  res.sendStatus(204);
-});
-
-server.put("/bounty/:id", (req, res) => {
-  const bounty = db.findIndex(v => v.id === Number(req.params.id));
-  if (~~bounty) res.sendStatus(404);
-  for (key in db[bounty]) if (req.body[key]) db[bounty][key] = req.body[key];
-  res.send(db[bounty]);
-});
+mongoose
+  .connect(
+    "mongodb://localhost:27017/BigShot",
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log("Connected to DB"))
+  .catch(err => console.error(err));
 
 server.listen(port, () => console.log(`Server running on ${port}`));
